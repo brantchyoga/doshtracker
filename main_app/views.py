@@ -17,15 +17,20 @@ def index(request):
 
 def profile(request, user_name):
     print('profile def')
-    user = User.objects.get(username=user_name)
+    day = 30
     pastdate = datetime.today()
-    startdate = pastdate - timedelta(days=60)
-    start_time = int(time.mktime(datetime(2012, 6, 1).timetuple()) * 1000)
+    startdate = pastdate - timedelta(days=day)
+    if request.method == 'POST':
+        pastdate = request.POST['start_date']
+        startdate = request.POST['past_date']
+        print(pastdate,startdate)
+    user = User.objects.get(username=user_name)
+
     print(startdate, pastdate)
     all_moneys = Money.objects.filter(user=user.id,date__range=[startdate, pastdate])
     all_moneyss = all_moneys.values()
     all_money = sorted(all_moneyss, key=operator.itemgetter('date'))
-    print('money: ', all_money)
+
 
     return render(request, 'profile.html', {'allMoney':all_money,'username':user})
 
@@ -135,8 +140,9 @@ def chart(request, user_name):
     for cash in all_money:
         cash_thing = int(cash['cash'])
         cash_list.append(cash_thing)
+        print(cash['date'])
         date_list.append(int(time.mktime((cash['date']).timetuple()))*1000)
-    print(cash_list, 'cashlist')
+    print(date_list)
 
     tooltip_date = "%d %b %Y %H:%M:%S %p"
     extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"},

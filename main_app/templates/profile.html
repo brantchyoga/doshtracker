@@ -30,21 +30,30 @@
     </div>
     <div class="grid-box-fill">
       <h3>Entries (Default is last 30 days)</h3>
-      <form class='blueish' method='GET'>
+      <form class='blueish gridcol2' method='POST'>
         {% csrf_token %}
         <label for='start_date'>Pick a Start Date: (Today is Default)
-          <input type='text' id='start_date' name='start_date' class="datepicker" placeholder="MM/DD/YYYY Format">
+          <input type='text' id='start_date' name='start_date' class="datepicker" placeholder="YYYY-MM-DD Format">
         </label>
         <label for='past_date'>Pick an End Date:
-          <input type='text' id='past_date' name='past_date' class="datepicker" placeholder="MM/DD/YYYY Format">
+          <input type='text' id='past_date' name='past_date' class="datepicker" placeholder="YYYY-MM-DD Format">
         </label>
+        <input type='submit' value='submit' class="">
       </form>
-      <div class='moneyEntries'>
+      <div class='moneyEntries gridcol5 flexC'>
+        <p class="table-title">Date:</p>
+        <p class="table-title">Cash:</p>
+        <p class="table-title"> Wage:</p>
+        <p class="table-title">Edit:</p>
+        <p class="table-title">Delete:</p>
+      </div>
+      <div class='moneyEntries gridcol5 flexC table-style'>
         {% for money in allMoney %}
-          <p class'inline'>Date: {{money.date}} Cash: {{money.cash}} Wage: {{money.day_wage}}
-            Edit: <a href='/edit/{{ username.username }}/money/{{money.id}}'>Edit</a>
-            Delete: <a href='/destroy/{{ username.username }}/money/{{money.id}}'>Delete</a>
-          </p>
+          <p>{{money.date}} </p>
+          <p>{{money.cash}}</p>
+          <p>{{money.day_wage}}</p>
+          <a href='/edit/{{ username.username }}/money/{{money.id}}'>Edit</a>
+          <a href='/destroy/{{ username.username }}/money/{{money.id}}'>Delete</a>
         {% endfor %}
       </div>
     </div>

@@ -13,5 +13,4 @@ urlpatterns = [
 	path('edit/<user_name>/', views.edit_user, name='edit_user'),
 	path('edit/<user_name>/money/<int:money_id>', views.edit_money, name='views.edit_money'),
 	path('destroy/<user_name>/money/<int:money_id>', views.delete_money, name='views.delete_money'),
-
 ]
