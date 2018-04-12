@@ -48,6 +48,9 @@ html, body {
 .inline {
   display: inline-block;
 }
+.blueishlinear{
+  background: linear-gradient(0.25turn, rgba(19, 64, 96,.4), rgb(19, 64, 96), rgba(19, 64, 96,.4));
+}
 .greyish {
   background-color: #A0BBCC;
 }
