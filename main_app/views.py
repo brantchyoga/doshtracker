@@ -53,7 +53,7 @@ def entercash(request, user_name):
             money = form.save(commit=False)
             money.user = request.user
             money.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/user/'+user_name)
     else:
         user = User.objects.get(username=user_name)
         money_form = MoneyForm()
@@ -99,23 +99,34 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form':form})
 
-def edit_money(request, user_name):
-    print('edit def')
-    user = User.objects.get(username=user_name)
-    instance = Money.objects.filter(date__range=[startdate, pastdate])
-    # instance = get_object_or_404(money, 'date'=money_date)
+def edit_money(request, user_name, money_id):
+    print('edit money def')
+    instance = Money.objects.get(id=money_id)
+    # user = User.objects.get(id=instance.user)
+    print(instance.user.id)
     form = MoneyForm(request.POST or None, instance=instance)
+    print(form.is_valid(),form)
     if form.is_valid():
+        print('form valid')
         form.save()
-        return redirect('show', money_id)
-    return render(request, 'edit_money.html', {'money': instance,'form':form})
+        return redirect('/user/'+instance.user.username)
+    return render(request, 'edit_money.html', {'money': instance,'form':form, 'user':user_name})
+
+def delete_money(request, user_name, money_id):
+    instance = Money.objects.get(id=money_id)
+    Money.objects.get(pk=money_id).delete()
+    return redirect('/user/'+instance.user.username)
 
 def chart(request, user_name):
     print('chart def')
+    day=30
+    if request.method == 'POST':
+        print(request.POST['days'])
+        day = int(request.POST['days'])
     user = User.objects.get(username=user_name)
     pastdate = datetime.today()
-    startdate = pastdate - timedelta(days=30)
-    start_time = int(time.mktime(datetime(2012, 6, 1).timetuple()) * 1000)
+    startdate = pastdate - timedelta(days=day)
+    print(startdate, pastdate)
     all_moneys = Money.objects.filter(user=user.id,date__range=[startdate, pastdate])
     all_moneyss = all_moneys.values()
     all_money = sorted(all_moneyss, key=operator.itemgetter('date'))

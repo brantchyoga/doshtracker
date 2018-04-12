@@ -57,7 +57,7 @@ html, body {
 .ltgreen {
   background-color: #056A69;
 }
-.blueish-text {
+.blueish {
   background-color: rgb(19, 64, 96);
 }
 .dkgray {
@@ -101,6 +101,9 @@ html, body {
   background-color: rgba(19, 64, 96,0.8);
   padding: 4px;
 }
+.grid-box-fill {
+  grid-column: 2 / 4;
+}
 .grid-box p  {
   color:white;
 }
@@ -111,6 +114,12 @@ h3,h1 {
   .grid-box {
     grid-column: 1 / 4;
   }
+}
+.grid-side {
+  height:87vh;
+  border:2px solid rgb(43, 55, 66);
+  background-color: rgba(43, 55, 66,0.5);
+  padding: 5px;
 }
 .index {
   grid-column: 1 / 4;

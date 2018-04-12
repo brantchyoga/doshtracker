@@ -7,27 +7,28 @@
     <title>DoshTracker</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel='stylesheet' type='text/css' href='{% static "style.css" %}'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     {% include_chart_jscss %}
     {% load_chart charttype chartdata chartcontainer extra %}
   </head>
   <body>
+
     {% if user.is_authenticated %}
-    <nav>
-      <div class="nav-wrapper dkgreen flexSB">
-        <div class='logo-box inline'>
-          <img src='{% static "images/dosh.png" %}' class="img-logo">
+      <nav>
+        <div class="nav-wrapper dkgreen flexSB">
+          <div class='logo-box inline'>
+            <a href='/#'><img src='{% static "images/dosh.png" %}' class="img-logo"></a>
+          </div>
+          <ul class="inline">
+            <li><a href='/#' class='greyish-text site-title'>DoshTracker</a></li>
+          </ul>
+          <ul>
+            <li><a href='{% url 'profile' user.username %}'>Hello {{user.username}}</a></li>
+            <li><a href='{% url 'logout' %}'>Log out</a></li>
+          </ul>
         </div>
-        <ul class="inline">
-          <li class='site-title greyish-text'>DoshTracker</li>
-        </ul>
-        <ul>
-          <li><a href='{% url 'profile' user.username %}'>Hello {{user.username}}</a></li>
-          <li><a href='{% url 'logout' %}'>Log out</a></li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
     {% else %}
     <nav>
       <div class="nav-wrapper dkgreen flexSB">
@@ -35,7 +36,7 @@
           <img src='{% static "images/dosh.png" %}' class="img-logo">
         </div>
         <ul class="inline">
-          <li class='greyish-text site-title'>DoshTracker</li>
+          <li><a href='/#' class='greyish-text site-title'>DoshTracker</a></li>
         </ul>
         <ul>
           <li><a href='{% url 'login' %}'>Login</a></li>
@@ -44,13 +45,26 @@
       </div>
     </nav>
     {% endif %}
+    <div class="content">
+      <div class="content-inside">
+        <h1>Chart</h1>
+        <form method='POST'>
+          {% csrf_token %}
+          <input name='days' type='number' placeholder="Number of days in past!">
+          <button type='submit'>Enter</button>
+        </form>
+        {% include_container chartcontainer 400 600 %}
+      </div>
+    </div>
 
-    <h1>Chart</h1>
-    {% include_container chartcontainer 400 600 %}
 
-    <footer>All Rights Reserved, DoshTracker 2018</footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <footer class="sitefooter dkgreen flexSA">All Rights Reserved, DoshTracker 2018</footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src='{% static "app.js" %}'></script>
   </body>
 </html>

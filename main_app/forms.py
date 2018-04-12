@@ -9,7 +9,9 @@ class MoneyForm(forms.ModelForm):
         model = Money
         fields = ['date', 'day_wage', 'cash']
         widgets = {
-        'date': forms.DateTimeInput(attrs={'id': 'datepicker','placeholder':'Enter date in MM/DD/YYYY'})
+        'date': forms.DateInput(attrs={'class': 'datepicker','placeholder':'Enter date in MM/DD/YYYY'}),
+        'day_wage': forms.NumberInput(attrs={'placeholder':'Enter Number in 0000.00'}),
+        'cash': forms.NumberInput(attrs={'placeholder':'Enter Number in 0000.00'}),
         }
 
 class LoginForm(forms.Form):

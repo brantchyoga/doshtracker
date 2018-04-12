@@ -2,13 +2,21 @@
 {% load static %}
 {% block content %}
 
-  <div class="row">
-    <div class="col s12">
-      {{ username.username }}
-      <a href='{% url 'entercash' username.username %}'>Enter Data</a>
-      <a href='{% url 'chart' username.username %}'>SEE A CHART</a>
-      <a href='/edit/{{ username.username }}'>Edit Profile Info</a>
-      <a class="modal-trigger" href="#modal1">Destroy Account</a>
+  <div class="gridwrap">
+    <div class="grid-side">
+      <h3>{{ username.username }}</h3>
+      <p>
+        <a href='{% url 'entercash' username.username %}'>Enter Data</a>
+      </p>
+      <p>
+        <a href='/edit/{{ username.username }}'>Edit Profile Info</a>
+      </p>
+      <p>
+        <a href='{% url 'chart' username.username %}'>SEE A CHART</a>
+      </p>
+      <p>
+        <a class="modal-trigger" href="#modal1">Destroy Account</a>
+      </p>
       <div id="modal1" class="modal">
         <div class="modal-content">
           <h4>Delete Account?</h4>
@@ -20,20 +28,25 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col s4">
+    <div class="grid-box-fill">
+      <h3>Entries (Default is last 30 days)</h3>
+      <form class='blueish' method='GET'>
+        {% csrf_token %}
+        <label for='start_date'>Pick a Start Date: (Today is Default)
+          <input type='text' id='start_date' name='start_date' class="datepicker" placeholder="MM/DD/YYYY Format">
+        </label>
+        <label for='past_date'>Pick an End Date:
+          <input type='text' id='past_date' name='past_date' class="datepicker" placeholder="MM/DD/YYYY Format">
+        </label>
+      </form>
       <div class='moneyEntries'>
-        <h4>Entries for the last 30 days</h4>
-          {% for money in allMoney %}
-            <p>Date: {{money.date}} Cash: {{money.cash}} Wage: {{money.day_wage}}</p>
-            <a href='/'
-          {% endfor %}
+        {% for money in allMoney %}
+          <p class'inline'>Date: {{money.date}} Cash: {{money.cash}} Wage: {{money.day_wage}}
+            Edit: <a href='/edit/{{ username.username }}/money/{{money.id}}'>Edit</a>
+            Delete: <a href='/destroy/{{ username.username }}/money/{{money.id}}'>Delete</a>
+          </p>
+        {% endfor %}
       </div>
-    </div>
-    <div class="col s8">
-
     </div>
   </div>
 

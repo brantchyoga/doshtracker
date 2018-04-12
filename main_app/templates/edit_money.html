@@ -4,7 +4,7 @@
 <div class="col s6 block_background">
   <div class=''>
     <h3>Edit Cat</h3>
-    <form action='/{{money.id}}/edit/' method='post'>
+    <form action='/edit/{{user}}/money/{{money.id}}' method='post'>
       {% csrf_token %}
       {{form.as_p}}
       <div class="center">
