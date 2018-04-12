@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class='newcat'>
+  <form action='post_cat/' method='post'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="center">
+      <input type="submit" value='submit' />
+    </div>
+  </form>
+</div>
+
+{% endblock %}

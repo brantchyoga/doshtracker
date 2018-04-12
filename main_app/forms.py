@@ -1,7 +1,7 @@
 from django import forms
 from .models import Money
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordResetForm
 
 
 class MoneyForm(forms.ModelForm):
@@ -9,7 +9,7 @@ class MoneyForm(forms.ModelForm):
         model = Money
         fields = ['date', 'day_wage', 'cash']
         widgets = {
-        'date': forms.DateTimeInput(attrs={'class': 'datepicker','placeholder':'Enter date in MM/DD/YYYY'})
+        'date': forms.DateTimeInput(attrs={'id': 'datepicker','placeholder':'Enter date in MM/DD/YYYY'})
         }
 
 class LoginForm(forms.Form):
@@ -23,3 +23,11 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1','password2')
+
+class ProfileForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=30, required=False)
+    last_name = forms.CharField(max_length=30, required=False)
+    email = forms.EmailField(max_length=254, help_text='email is required')
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')

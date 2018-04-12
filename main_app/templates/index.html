@@ -2,13 +2,53 @@
 {% load static %}
 {% block content %}
 
-<div>
-  {% for dates in money %}
+    <h1 class="center">Welcome to DoshTracker!</h1>
+    <div class="gridwrap">
+      <div class="grid-box">
+        <h3 class="center">About</h3>
+        <p>Hi my name is Brant and I created this site ot help individuals keep track
+           of money that they recieve in the form of cash that doesn't automatically go margin-top
+           into your bank account. If you don't already have a bank account you should
+           should you stop reading and go sign up for one now!
+        </p>
+        <p>  I worked as a server and bartender for over 3 years and I have found that
+          when my coworkers get there tips in cash they spend that all of it within
+          a week. That money tends to be there main source of income so when it comes
+          time to pay rent or bills they are emptying out there bank accounts and
+          don't have much to there name.
+        </p>
+      </div>
+      <div class="grid-box">
+        <h3 class="center">Savings!?</h3>
+        <p>Why should you save? Regardless of income level or projected retirement
+          lifestyle, the typical senior can't live off Social Security alone. In
+          fact, your Social Security benefits will only replace about 40% of your
+          previous income, which won't cut it even under the most frugal circumstances.
+        </p>
+        <p>So you'll need to sock away money consistently to ensure a reasonably
+          comfortable future. For years, financial experts have been telling workers
+          to set aside 10% of their incomes for retirement. And that's certainly a
+          respectable goal. But if you really want to avoid a situation where you're
+          strapped for cash later on, you should, in reality, be saving 15% or more
+          of your income not just later in life, but throughout your career.
+        </p>
+      </div>
+      <div class="grid-box">
+        <h3 class="center">Compound Interest!</h3>
+        <p>Compound interest is why starting you should start saving as soon as you
+           read this. Compound interest can be thought of as interest on interest.
+           This is extremely better than simple interest which is thought of on an annual
+           bases. Compound interest is calculated by multiplying the principal amount
+           by one plus the annual interest rate raised to the number of compound
+           periods minus one.The total initial amount of the loan is then subtracted
+           from the resulting value.
+        </p>
+        <p>A great resource for seeing how your money can grow can be found
+          <a href='https://www.investor.gov/additional-resources/free-financial-planning-tools/compound-interest-calculator'>Investor.gov</a>.
+        </p>
 
-  {% endfor %}
-</div>
-
-
+      </div>
+    </div>
 
 
 {% endblock %}

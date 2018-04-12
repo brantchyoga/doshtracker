@@ -3,14 +3,38 @@
 {% block content %}
 
   <div class="row">
-    <div class="col s6">
-      {%  %}
-    </div>
-    <div class="col s6">
-      {%  %}
+    <div class="col s12">
+      {{ username.username }}
+      <a href='{% url 'entercash' username.username %}'>Enter Data</a>
+      <a href='{% url 'chart' username.username %}'>SEE A CHART</a>
+      <a href='/edit/{{ username.username }}'>Edit Profile Info</a>
+      <a class="modal-trigger" href="#modal1">Destroy Account</a>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Delete Account?</h4>
+          <p>Are you sure you want to delete your Account? All your information will be erased permanently.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Disagree</a>
+          <a href='/destroy/{{ username.username }}' class="modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+        </div>
+      </div>
     </div>
   </div>
 
+  <div class="row">
+    <div class="col s4">
+      <div class='moneyEntries'>
+        <h4>Entries for the last 30 days</h4>
+          {% for money in allMoney %}
+            <p>Date: {{money.date}} Cash: {{money.cash}} Wage: {{money.day_wage}}</p>
+            <a href='/'
+          {% endfor %}
+      </div>
+    </div>
+    <div class="col s8">
 
+    </div>
+  </div>
 
 {% endblock %}

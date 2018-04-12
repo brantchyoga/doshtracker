@@ -1,3 +1,117 @@
-h1 {
-  color: turquoise;
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.content {
+  min-height: 90%;
+  overflow: auto;
+  position: relative;
+}
+.content:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url('http://www.pptbackgrounds.org/uploads/online-banking-concept-backgrounds-wallpapers.jpg');
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+.content-inside {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+.sitefooter {
+  height: 50px;
+  margin-top: 0;
+}
+.logo-box {
+  width: 100px;
+  height: 100%;
+}
+.img-logo {
+  width: 100%;
+  height: 100%;
+}
+.site-title {
+  font-size: 2em !important;
+}
+.inline {
+  display: inline-block;
+}
+.greyish {
+  background-color: #A0BBCC;
+}
+.dkgreen {
+  background-color: #005D43;
+}
+.ltgreen {
+  background-color: #056A69;
+}
+.blueish-text {
+  background-color: rgb(19, 64, 96);
+}
+.dkgray {
+  background-color: #2B3742;
+}
+.greyish-text {
+  color: rgb(160, 187, 204);
+}
+.dkgreen-text {
+  color: #005D43;
+}
+.ltgreen-text {
+  color: #056A69;
+}
+.blueish-text {
+  color: #134060;
+}
+.dkgray-text {
+  color: #2B3742;
+}
+.flex {
+  display: flex;
+}
+.flexSB {
+  display: flex;
+  justify-content: space-between;
+}
+.flexSA {
+  display: flex;
+  justify-content: space-around;
+}
+.gridwrap{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.grid-box {
+  border-radius: 10px;
+  border: 1px solid #2B3742;
+  background-color: rgba(19, 64, 96,0.8);
+  padding: 4px;
+}
+.grid-box p  {
+  color:white;
+}
+h3,h1 {
+  color:#8ddbdb;
+}
+@media only screen and (max-width: 800px){
+  .grid-box {
+    grid-column: 1 / 4;
+  }
+}
+.index {
+  grid-column: 1 / 4;
 }
