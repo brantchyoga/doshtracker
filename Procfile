@@ -1,1 +1,1 @@
-web: gunicorn doshtracker:app
+web: gunicorn hello:doshtracker
