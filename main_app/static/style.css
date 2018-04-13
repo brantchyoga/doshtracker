@@ -178,3 +178,9 @@ h3,h1 {
   border-radius: 5px;
   padding: 4px;
 }
+.entercash::placeholder {
+  color: #42f462 !important;
+}
+label {
+
+}
