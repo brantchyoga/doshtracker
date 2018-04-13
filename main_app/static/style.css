@@ -148,7 +148,7 @@ h3,h1 {
   display: grid;
   grid-template-columns:repeat(5, 1fr);
   grid-gap: 5px 5px;
-  height:390px;
+  height:50%;
   /* grid-auto-rows: minmax(100px, auto); */
 }
 .gridcol2{
