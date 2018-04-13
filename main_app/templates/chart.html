@@ -46,14 +46,19 @@
     </nav>
     {% endif %}
     <div class="content">
-      <div class="content-inside">
-        <h1>Chart</h1>
-        <form method='POST'>
-          {% csrf_token %}
-          <input name='days' type='number' placeholder="Number of days in past!">
-          <button type='submit'>Enter</button>
-        </form>
-        {% include_container chartcontainer 400 600 %}
+      <div class="content-inside chartgrid">
+        <div class='grayishop'>
+          {% include_container chartcontainer 400 600 %}
+        </div>
+        <div class="grayishop">
+          <h1 class="grayishop">Chart</h1>
+          <form class="blackborder flexC" method='POST'>
+            {% csrf_token %}
+            <input  name='days' type='number' placeholder="Number of days in past!">
+            <button type='submit'>Enter</button>
+          </form>
+        </div>
+
       </div>
     </div>
 

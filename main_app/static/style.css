@@ -52,7 +52,7 @@ html, body {
   background: linear-gradient(0.25turn, rgba(19, 64, 96,.4), rgb(19, 64, 96), rgba(19, 64, 96,.4));
 }
 .greyish {
-  background-color: #A0BBCC;
+  background-color: rgb(160, 187, 204);
 }
 .dkgreen {
   background-color: #005D43;
@@ -158,4 +158,23 @@ h3,h1 {
 .table-title {
   font-size: 30px;
   text-decoration: underline;
+}
+.chartgrid {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  grid-gap: 10px 5px;
+}
+.grayishop {
+  background: linear-gradient(0.25turn,rgba(160, 187, 204,1), rgba(129, 213, 189, 0.6),rgba(160, 187, 204,1));
+  padding: 10px;
+  border-radius: 6px;
+}
+::placeholder {
+    color: rgb(0, 93, 67);
+    opacity: 1; /* Firefox */
+}
+.blackborder {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 4px;
 }
