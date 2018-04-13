@@ -23,6 +23,7 @@ numpy==1.14.2
 parso==0.1.1
 pexpect==4.4.0
 pickleshare==0.7.4
+pipenv==11.10.0
 prompt-toolkit==1.0.15
 protobuf==3.5.2.post1
 psycopg2==2.7.4
@@ -41,5 +42,7 @@ traitlets==4.3.2
 Unidecode==1.0.22
 urllib3==1.22
 virtualenv==15.2.0
+virtualenv-clone==0.3.0
 wcwidth==0.1.7
 Werkzeug==0.14.1
+whitenoise==3.3.1
