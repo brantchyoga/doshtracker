@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="col s6 block_background">
-  <div class=''>
-    <h3>Edit Cat</h3>
+  <div class='entercash blueishlinear'>
+    <h3>Edit Money on {{money.date}}</h3>
     <form action='/edit/{{user}}/money/{{money.id}}' method='post'>
       {% csrf_token %}
       {{form.as_p}}

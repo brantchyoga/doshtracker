@@ -115,7 +115,7 @@ def edit_money(request, user_name, money_id):
         print('form valid')
         form.save()
         return redirect('/user/'+instance.user.username)
-    return render(request, 'edit_money.html', {'money': instance,'form':form, 'user':user_name})
+    return render(request, 'edit_money.html', {'money': instance,'form':form, 'user':instance.user})
 
 def delete_money(request, user_name, money_id):
     instance = Money.objects.get(id=money_id)

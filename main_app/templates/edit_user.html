@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
-  <h1>Edit Info</h1>
-  <form method='POST'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type='submit'>Edit Info</button>
-  </form>
+  <div class="blueishlinear">
+    <h1>Edit Info</h1>
+    <form method='POST'>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type='submit'>Edit Info</button>
+    </form>
+  </div>
 
 {% endblock %}
