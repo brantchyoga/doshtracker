@@ -1,15 +1,14 @@
-# Ryde
+# DoshTracker
 
-[Ryde](https://ryde-app.herokuapp.com/) is a web app for organizing and joining carpools. It was created for Project 3 at General Assembly, WDI-17 and is hosted on Heroku at:
+[DoshTracker] is a web app for organizing and tracking cash made in tips/on the job. It was created for Project 4 at General Assembly, WDI-17.
 
 
 ---
 ## Technologies Used
 
-- HTML5 / CSS3
+- HTML5 / CSS3 (grid and flexbox)
 - JavaScript
 - Jquery
-- Materialize
 - Python
 - Django
 - D3
@@ -17,65 +16,26 @@
 - PostgresSql
 
 
-## Routes
-[to the top](https://github.com/ScoRoc/Ryde#ryde)
-
-| CRUD   | ROUTE                           | FUNCTIONALITY
-|--------|---------------------------------|--------------
-| GET    | /                               | Home page.
-| POST   | /auth/signup                    | Sign up.
-| POST   | /auth/login                     | Log in.
-| POST   | /auth/me/from/token                  | Lift login from token.
-| POST   | /ryde                           | Post a dryve.
-
-
-
-
-## Models
-
-#### User
-    -Django's built in User Model
-
-#### Money
+#### Models
     - User
-    - cash
-    - wage
-    -
-
-
-## APIs Used
-[to the top](https://github.com/ScoRoc/Ryde#ryde)
-- [Avatar API](https://www.avatarapi.com)
+    - Money
 
 ## User Stories
-[to the top](https://github.com/ScoRoc/Ryde#ryde)
+[to the top](https://github.com/ScoRoc/DoshTracker#ryde)
 
-1. As a daily commuter, I'd prefer to carpool over taking public transportation or driving my own car to work every day. Commuting is cheaper, more pleasant than riding the bus, and is better for the environment.
-2. My friends and I are going to a music festival, but none of us have a car! We'd love to carpool
-if someone else going has a few extra seats.
-3. I'm looking for something to do this weekend, and want to find trips that are leaving from my area. Maybe I'll make some new friends on the way!
+1. As a Bartender, I am used to grabbing a drink after work and buying my food at work. But even with my discounts I tend to spend 20-40 dollars everytime I work 5 days a week. I am finding that the money I bring home isn't quite enough.
+2. I am Ashley and I am a stripper in Las Vegas and with my late nights I find I tend to spend my tips and cash everyday. It becomes hard to keep track what I am making during a shift and how much I should claim in taxes at the end of the year.
 
 ## About the project
-[to the top](https://github.com/ScoRoc/Ryde#ryde)
 
-Ryde was originally inspired by the traffic and difficult commutes prevalent in Seattle. Organizing carpools at scale could reduce the number of cars on the road, helping to clear room and reduce travel times at peak hours.
-
-Once we started thinking about it, however, we realized that the opportunity for Ryde was even larger than daily commutes. Carpooling can help save money and provide access in a number of situations, including remote weekend activities (like skiing), traveling to popular destinations (Sasquatch music festival), and more.
-
-## Wireframes
-[to the top](https://github.com/ScoRoc/Ryde#ryde)
-
-![Landing page wireframe](readme-images/1.jpg)
-![List search](readme-images/2.jpg)
-![Expandable result card](readme-images/3.jpg)
-![Login and signup](readme-images/4.jpg)
+DoshTracker was originally inspired because my previous jobs as a bartender and server have made me realize that when people make money as cash instead of a check, it can be hard to track. It is not like you can take a picture of the cash and it goes into a bank. I have seen many friends struggle to make ends meet because they spend the cash they make. Not realizing that that cash is there main income and needs to be saved not spent.
 
 
 ## Next Steps
-[to the top](https://github.com/ScoRoc/Ryde#ryde)
 
 - Improve ReadMe.md
-- Add payments API integration
+- More interaction for users
+- Improve styling
 - Improve security
 - Clean and standardize code.
-- Consolidate BigSearch and MiniSearch server routes.
+- Add more saving feactures and saving goals
